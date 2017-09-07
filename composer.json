@@ -19,7 +19,6 @@
     "amazon"
   ],
   "require": {
-    "php": ">=5.5.9",
     "league/oauth2-client": "^2.0"
   },
   "require-dev": {
