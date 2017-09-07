@@ -1,6 +1,6 @@
 
 {
-  "name": "league/oauth2-amazon",
+  "name": "luchianenco/oauth2-amazon",
   "description": "Amazon OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
   "license": "MIT",
   "authors": [
