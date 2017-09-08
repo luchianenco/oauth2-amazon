@@ -19,7 +19,7 @@ class Amazon extends AbstractProvider
      */
     public function getBaseAuthorizationUrl()
     {
-        return 'https://api.amazon.com/auth/o2/token';
+        return 'https://www.amazon.com/ap/oa';
     }
 
     /**
@@ -52,7 +52,7 @@ class Amazon extends AbstractProvider
     protected function getDefaultScopes()
     {
         return [
-            'profile', 'payments:widget', 'payments:shipping_address'
+            'profile'
         ];
     }
 
