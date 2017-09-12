@@ -66,11 +66,13 @@ class Amazon extends AbstractProvider
      */
     protected function checkResponse(ResponseInterface $response, $data)
     {
-        throw new AmazonIdentityProviderException(
-            $data['error'] ?: $response->getReasonPhrase(),
-            $response->getStatusCode(),
-            $response
-        );
+        if (!empty($data['error'])) {
+            throw new AmazonIdentityProviderException(
+                $data['error'] ?: $response->getReasonPhrase(),
+                $response->getStatusCode(),
+                $response
+            );
+        }
     }
 
     /**
