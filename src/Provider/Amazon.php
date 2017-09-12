@@ -41,7 +41,7 @@ class Amazon extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return 'https://api.amazon.com/user/profile';
+        return 'https://api.amazon.com/user/profile?access_token=' . $token->getToken();
     }
 
     /**
