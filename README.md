@@ -1,5 +1,6 @@
 # Amazon Provider for OAuth 2.0 Client
 [![Latest Version](https://img.shields.io/github/release/luchianenco/oauth2-amazon.svg?style=flat-square)](https://github.com/luchianenco/oauth2-amazon/releases)
+[![Build Status](https://img.shields.io/travis/luchianenco/oauth2-amazon/master.svg?style=flat-square)](https://travis-ci.org/luchianenco/oauth2-amazon)
 [![Total Downloads](https://img.shields.io/packagist/dt/luchianenco/oauth2-amazon.svg?style=flat-square)](https://packagist.org/packages/luchianenco/oauth2-amazon)
 
 
