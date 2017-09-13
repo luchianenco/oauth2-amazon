@@ -43,20 +43,16 @@ if (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['OAuth2State'])) {
 } else {
 
     // Try to get an access token
-    $token = $provider->getAccessToken('authorization_code', [
-        'code' => $_GET['code']
-    ]);
+    $token = $provider->getAccessToken('authorization_code', ['code' => $_GET['code']]);
 
     // Now we can look up users profile
     try {
-
         // Get the user's details
         $user = $provider->getResourceOwner($token);
 
         printf('Hello %s!', $user->getName());
 
     } catch (Exception $e) {
-
         // Failed to get user details
         exit('Oh no ... ...');
     }
