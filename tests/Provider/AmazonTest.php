@@ -5,7 +5,7 @@ namespace Luchianenco\OAuth2\Client\Test\Provider;
 use Luchianenco\OAuth2\Client\Provider\Amazon;
 use PHPUnit\Framework\TestCase;
 
-class AmazonTest extends TestCase
+final class AmazonTest extends TestCase
 {
     const CLIENT_ID = '0000000001';
     const CLIENT_SECRET = 'XXXXXXXXX';
@@ -14,7 +14,7 @@ class AmazonTest extends TestCase
     /** @var Amazon */
     protected $provider;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->provider = new Amazon([
             'clientId' => self::CLIENT_ID,
@@ -23,7 +23,8 @@ class AmazonTest extends TestCase
         ]);
     }
 
-    public function testBaseAuthorizationUrl()
+    /** @test */
+    public function testBaseAuthorizationUrl(): void
     {
         $url = $this->provider->getBaseAuthorizationUrl();
         $resource = parse_url($url);
@@ -32,7 +33,8 @@ class AmazonTest extends TestCase
         $this->assertEquals('/ap/oa', $resource['path']);
     }
 
-    public function testAuthorizationUrl()
+    /** @test */
+    public function testAuthorizationUrl(): void
     {
         $url = $this->provider->getAuthorizationUrl();
         $resource = parse_url($url);
@@ -56,7 +58,8 @@ class AmazonTest extends TestCase
         $this->assertArrayHasKey('approval_prompt', $urlQuery);
     }
 
-    public function testBaseAccessTokenUrl()
+    /** @test */
+    public function testBaseAccessTokenUrl(): void
     {
         $params = [];
         $url = $this->provider->getBaseAccessTokenUrl($params);
