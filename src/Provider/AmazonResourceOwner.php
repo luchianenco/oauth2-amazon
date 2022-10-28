@@ -2,6 +2,7 @@
 
 namespace Luchianenco\OAuth2\Client\Provider;
 
+use JetBrains\PhpStorm\Pure;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use League\OAuth2\Client\Tool\ArrayAccessorTrait;
 
@@ -9,14 +10,8 @@ class AmazonResourceOwner implements ResourceOwnerInterface
 {
     use ArrayAccessorTrait;
 
-    /**
-     * @var array
-     */
-    protected $response;
+    protected array $response;
 
-    /**
-     * @param array $response
-     */
     public function __construct(array $response = [])
     {
         $this->response = $response;
@@ -24,40 +19,32 @@ class AmazonResourceOwner implements ResourceOwnerInterface
 
     /**
      * Returns the identifier of the authorized resource owner.
-     *
-     * @return mixed
      */
-    public function getId()
+    public function getId(): mixed
     {
         return $this->getValueByKey($this->response, 'user_id');
     }
 
     /**
      * Returns email address of the resource owner
-     *
-     * @return string|null
      */
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->getValueByKey($this->response, 'email');
     }
 
     /**
      * Returns full name of the resource owner
-     *
-     * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->getValueByKey($this->response, 'name');
     }
 
     /**
      * Return all of the owner details available as an array.
-     *
-     * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->response;
     }

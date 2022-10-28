@@ -14,42 +14,32 @@ class Amazon extends AbstractProvider
 
     /**
      * Returns the base URL for authorizing a client.
-     *
-     * @return string
      */
-    public function getBaseAuthorizationUrl()
+    public function getBaseAuthorizationUrl(): string
     {
         return 'https://www.amazon.com/ap/oa';
     }
 
     /**
      * Returns the base URL for requesting an access token.
-     *
-     * @param array $params
-     * @return string
      */
-    public function getBaseAccessTokenUrl(array $params)
+    public function getBaseAccessTokenUrl(array $params): string
     {
         return 'https://api.amazon.com/auth/o2/token';
     }
 
     /**
      * Returns the URL for requesting the resource owner's details.
-     *
-     * @param AccessToken $token
-     * @return string
      */
-    public function getResourceOwnerDetailsUrl(AccessToken $token)
+    public function getResourceOwnerDetailsUrl(AccessToken $token): string
     {
         return 'https://api.amazon.com/user/profile?' . http_build_query(['access_token' => $token->getToken()]);
     }
 
     /**
      * Returns the default scopes used by this provider.
-     *
-     * @return array
      */
-    protected function getDefaultScopes()
+    protected function getDefaultScopes(): array
     {
         return [
             'profile'
@@ -62,9 +52,8 @@ class Amazon extends AbstractProvider
      * @throws IdentityProviderException
      * @param  ResponseInterface $response
      * @param  array|string $data Parsed response data
-     * @return void
      */
-    protected function checkResponse(ResponseInterface $response, $data)
+    protected function checkResponse(ResponseInterface $response, $data): void
     {
         if (!empty($data['error'])) {
             throw new AmazonIdentityProviderException(
@@ -78,12 +67,8 @@ class Amazon extends AbstractProvider
     /**
      * Generates a resource owner object from a successful resource owner
      * details request.
-     *
-     * @param  array $response
-     * @param  AccessToken $token
-     * @return ResourceOwnerInterface
      */
-    protected function createResourceOwner(array $response, AccessToken $token)
+    protected function createResourceOwner(array $response, AccessToken $token): ResourceOwnerInterface
     {
         return new AmazonResourceOwner($response);
     }
