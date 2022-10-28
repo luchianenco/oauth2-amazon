@@ -11,8 +11,7 @@ final class AmazonTest extends TestCase
     const CLIENT_SECRET = 'XXXXXXXXX';
     const REDIRECT_URI = 'https://example.com/connect/check';
 
-    /** @var Amazon */
-    protected $provider;
+    protected Amazon $provider;
 
     public function setUp(): void
     {

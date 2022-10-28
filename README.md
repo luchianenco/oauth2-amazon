@@ -8,7 +8,7 @@ This package provides Amazon OAuth 2.0 support for the PHP League's [OAuth 2.0 C
 
 ## Installation
 
-To install, use composer:
+To install the package, use composer:
 
 ```
 composer require luchianenco/oauth2-amazon

@@ -1,0 +1,14 @@
+version: '3'
+services:
+  php80:
+    build:
+      context: .
+      dockerfile: ./build/images/php/Dockerfile8.0
+    environment:
+      APP_ENV: dev
+  php81:
+    build:
+      context: .
+      dockerfile: ./build/images/php/Dockerfile8.1
+    environment:
+      APP_ENV: dev
