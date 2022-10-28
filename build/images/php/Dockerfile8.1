@@ -1,0 +1,10 @@
+FROM php:8.1-cli-alpine3.16
+
+COPY ./ /var/www/library
+
+WORKDIR /var/www/library
+
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+RUN composer install
+
+CMD ["php", "./vendor/bin/phpunit"]
